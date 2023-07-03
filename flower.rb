@@ -5,11 +5,11 @@
 class Flower < Formula
   desc ""
   homepage "https://github.com/KaueSabinoSRV17/Flower"
-  version "1.0.6"
+  version "1.0.7"
 
   on_macos do
-    url "https://github.com/KaueSabinoSRV17/Flower/releases/download/1.0.6/Flower_1.0.6_darwin_all.tar.gz"
-    sha256 "1da113beb566742ada2454d36385d7d996b180fbf7d51ef8b3612ef295b539aa"
+    url "https://github.com/KaueSabinoSRV17/Flower/releases/download/1.0.7/Flower_1.0.7_darwin_all.tar.gz"
+    sha256 "84c06a10ebffd2b974410f1dcc9e9932fbd74b8aa082974cd1aceb6523dae3cb"
 
     def install
       bin.install "Flower"
@@ -17,17 +17,17 @@ class Flower < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/KaueSabinoSRV17/Flower/releases/download/1.0.6/Flower_1.0.6_linux_amd64.tar.gz"
-      sha256 "cb6f0ace01d2887d8aa431f02e48c9abd5e4c7448584c7d599bcae547f01b16e"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/KaueSabinoSRV17/Flower/releases/download/1.0.7/Flower_1.0.7_linux_arm64.tar.gz"
+      sha256 "148f358c2d2cf5101c89680c81426db908a831e418d3dc874af41d931f9f2f28"
 
       def install
         bin.install "flow"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/KaueSabinoSRV17/Flower/releases/download/1.0.6/Flower_1.0.6_linux_arm64.tar.gz"
-      sha256 "c179631664384153918f091e394f95ec529b92b4fb5b6ae2e0fc2c38c93a77a1"
+    if Hardware::CPU.intel?
+      url "https://github.com/KaueSabinoSRV17/Flower/releases/download/1.0.7/Flower_1.0.7_linux_amd64.tar.gz"
+      sha256 "eba1a2bb1d62845dab63c169615dbce3e048c208a6b449d08ef2831d9037b710"
 
       def install
         bin.install "flow"
